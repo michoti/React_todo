@@ -1,10 +1,9 @@
 import React from 'react'
 
-export const Form = () => {
-
-
+const Form = () => {
 
   return (
+    <div>
     <form>
         <input 
         type="text" 
@@ -12,5 +11,10 @@ export const Form = () => {
         />
         <button type="submit">Add</button>
     </form>
+   
+    </div>
+
   )
 }
+
+export default Form

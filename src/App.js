@@ -1,7 +1,8 @@
-
+import './App.css'
 import { useState } from "react"
 import Form from "./components/Form"
 import Header from "./components/Header"
+import List from './components/List'
 
 const App = () => {
 
@@ -14,13 +15,16 @@ const App = () => {
     };
 
     const addTask = () => {
-        const newTodoList = [...todo, input];
-        setTodo(newTodoList);
+        const task = {
+            id : todo.length === 0 ? 1: todo[todo.length - 1].id + 1,
+            taskName: input,
+        };
+
+        setTodo([...todo, task]);
     };
 
-    const deleteTask = (taskName) => {
-        setTodo();
-
+    const deleteTask = (id) => {
+        setTodo(todo.filter(task => task.id !== id));
     };
     
   return (
@@ -32,20 +36,17 @@ const App = () => {
 
 
 
-            {/* <div>
+            <div>
                 <Header />
-            </div> */}
+            </div>
 
-            {/* <div>
-              <Form input={input} setInput={setInput} todos={todos} setTodos={setTodos} />
-            </div> */}
+            <div>
+              <Form />
+            </div>
             <div>
                 {todo.map((task) => {
                     return (
-                        <div>
-                            <h1>{task}</h1>
-                            <button onClick={() => deleteTask(task)} >Delete</button>
-                        </div>
+                        <List taskName={task.taskName} id={task.id} deleteTask={deleteTask} />
                     )
                 })}
             </div>
