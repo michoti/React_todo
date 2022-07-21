@@ -1,27 +1,16 @@
 import React from 'react'
 
-const Form = ({input, setInput, todos, setTodos}) => {
+export const Form = () => {
 
-    const onInputChange = (e) => {
-        setInput(e.target.value);
-    };
 
-    const onFormSubmit = (e) => {
-        e.preventDefault();
-    };
 
   return (
-    <form onSubmit={onFormSubmit}>
+    <form>
         <input 
         type="text" 
         placeholder='Enter a todo...'
-        value={input}
-        onChange={onInputChange}
-        required
         />
         <button type="submit">Add</button>
     </form>
   )
 }
-
-export default Form
