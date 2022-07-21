@@ -1,17 +1,16 @@
 import React from 'react'
 
-const Form = () => {
+const Form = (props) => {
 
   return (
     <div>
-    <form>
         <input 
-        type="text" 
+        type="text"
+        onChange={props.handleInputChange} 
         placeholder='Enter a todo...'
         />
-        <button type="submit">Add</button>
-    </form>
-   
+        <button onClick={props.addTask} type="submit">Add</button>
+       
     </div>
 
   )

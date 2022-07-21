@@ -28,30 +28,24 @@ const App = () => {
     };
     
   return (
-    <div>
-        <div>
-
-            <input onChange={handleInputChange} />
-            <button onClick={addTask} >Add</button>
-
-
-
-            <div>
-                <Header />
+        <div className='App'>
+            <div className='main'>
+                <div className='header-section'>
+                    <Header />
+                </div>
+                <div>
+                <Form handleInputChange={handleInputChange} addTask={addTask} />
+                </div>
+                <div>
+                    {todo.map((task) => {
+                        return (
+                            <List taskName={task.taskName} id={task.id} deleteTask={deleteTask} />
+                        )
+                    })}
+                </div>
             </div>
 
-            <div>
-              <Form />
-            </div>
-            <div>
-                {todo.map((task) => {
-                    return (
-                        <List taskName={task.taskName} id={task.id} deleteTask={deleteTask} />
-                    )
-                })}
-            </div>
-        </div>
-    </div>
+      </div>
   )
 }
 
