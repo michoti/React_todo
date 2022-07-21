@@ -18,10 +18,17 @@ const App = () => {
         const task = {
             id : todo.length === 0 ? 1: todo[todo.length - 1].id + 1,
             taskName: input,
+            completed: false,
         };
 
         setTodo([...todo, task]);
     };
+
+    const completeTask = (id) => {
+        setTodo(todo.map((task) => task.id === id ? {...task, completed: true} : task))
+
+    };
+
 
     const deleteTask = (id) => {
         setTodo(todo.filter(task => task.id !== id));
@@ -34,12 +41,14 @@ const App = () => {
                     <Header />
                 </div>
                 <div>
-                <Form handleInputChange={handleInputChange} addTask={addTask} />
+                    <div>
+                        <Form handleInputChange={handleInputChange} addTask={addTask} />
+                    </div>                
                 </div>
                 <div>
                     {todo.map((task) => {
                         return (
-                            <List taskName={task.taskName} id={task.id} deleteTask={deleteTask} />
+                            <List taskName={task.taskName} id={task.id} completed={task.completed} deleteTask={deleteTask} completedTask={completeTask} />
                         )
                     })}
                 </div>

@@ -8,6 +8,7 @@ const Form = (props) => {
         type="text"
         onChange={props.handleInputChange} 
         placeholder='Enter a todo...'
+        required
         />
         <button onClick={props.addTask} type="submit">Add</button>
        
