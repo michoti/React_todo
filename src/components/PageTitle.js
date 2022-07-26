@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { Children } from 'react'
 
-const PageTitle = () => {
+const PageTitle = ({Children}) => {
   return (
-    <div>PageTitle</div>
+    <div>
+        <h1>{Children}</h1>
+    </div>
   )
 }
 
