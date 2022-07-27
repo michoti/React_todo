@@ -1,8 +1,8 @@
-import style from '../styles/modules/title.module.scss';
+import '../style/modules/title.css'
 
 const PageTitle = ({children}) => {
   return (
-        <h1 className={style.title}>{children}</h1>
+        <h1 className='title'>{children}</h1>
   )
 }
 
