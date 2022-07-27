@@ -1,10 +1,8 @@
-import React, { Children } from 'react'
+import style from '../styles/modules/title.module.scss';
 
-const PageTitle = ({Children}) => {
+const PageTitle = ({children}) => {
   return (
-    <div>
-        <h1>{Children}</h1>
-    </div>
+        <h1 className={style.title}>{children}</h1>
   )
 }
 

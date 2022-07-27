@@ -1,13 +1,15 @@
 import React from 'react'
-import PageTitle from './components/PageTitle'
+import AppHeader from './components/AppHeader';
+import PageTitle from './components/PageTitle';
+import style from './styles/modules/app.module.scss';
 
 const App = () => {
   return (    
     <div className="container">
-        <PageTitle>TODO LIST</PageTitle>
-
-        <h1>testinggg</h1>
-        
+        <PageTitle>TODO LIST</PageTitle>  
+        <div className={style.app__wrapper}>
+          <AppHeader />
+        </div>    
     </div>
     
   )
